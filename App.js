@@ -4,7 +4,7 @@ import { gStyle } from './styles/style';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import React, { useState } from 'react';
-import Main from './components/Main';
+import MainStack from './navigate';
 
 const fonts = () => Font.loadAsync({
   'mt-bold': require('./assets/fonts/mt-bold.ttf'),
@@ -16,7 +16,7 @@ export default function App() {
 
   if(font){
     return (
-      <Main />
+      <MainStack />
     );
   }else {
     return (
