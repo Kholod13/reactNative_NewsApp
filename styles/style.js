@@ -4,10 +4,10 @@ export const gStyle = StyleSheet.create({
     main: {
         flex: 1,
         padding: 20,
-        paddingTop: 60,
+        paddingTop: 40,
     },
     title: {
-        fontSize: 20,
+        fontSize: 36,
         color: "#333",
         fontFamily: 'mt-bold',
         textAlign: 'center',

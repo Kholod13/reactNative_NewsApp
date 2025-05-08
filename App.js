@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { gStyle } from './styles/style';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
@@ -16,7 +16,9 @@ export default function App() {
 
   if(font){
     return (
-      <MainStack />
+
+        <MainStack />
+    
     );
   }else {
     return (

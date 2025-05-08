@@ -1,4 +1,4 @@
-import {Text, View, StyleSheet } from 'react-native';
+import {Text, View, StyleSheet, ScrollView } from 'react-native';
 import { gStyle } from '../styles/style';
 import React, { useState } from 'react';
 
@@ -9,14 +9,21 @@ export default function FullInfo({route}) {
   //}
 
     return (
-      <View style={gStyle.main}>
-        <Text style={gStyle.title}>{route.params.name}</Text>
-        <Text>{route.params.news.full}</Text>
-        {/* <Button title='GO_BACK' onPress={loadScene} /> */}
-      </View>
+      <ScrollView showsVerticalScrollIndicator={true}>
+        <View style={gStyle.main}>
+          <Text style={gStyle.title}>{route.params.news.name}</Text>
+          <Text style={styles.text}>{route.params.news.full}</Text>
+          {/* <Button title='GO_BACK' onPress={loadScene} /> */}
+        </View>
+      </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
-        
+        text: {
+          fontSize: 26,
+          fontFamily: 'mt-light',
+          textAlign: 'center',
+          paddingTop: 20,
+        },
     });
