@@ -3,6 +3,7 @@ import { gStyle } from '../styles/style';
 import React, { useState } from 'react';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import Form from './Form';
 
 export default function Main({navigation}) {
     const [news, setNews] = useState([
@@ -12,14 +13,25 @@ export default function Main({navigation}) {
     ]);
 
     const [modalVisible, setModalWindow] = useState(false);
+
+    const addArticle = (article) => {
+      setNews((list) => {
+        return [
+          article,
+          ...list
+        ]
+      });
+      setModalWindow(false);
+    }
     return (
       <ScrollView showsVerticalScrollIndicator={false}>
         <Modal visible={modalVisible} animationType='slide'>
-          <View>
-            <Text style={gStyle.title}>Add News</Text>
-          </View>
           <MaterialCommunityIcons style={styles.add} name="close-box" size={44} color="black" 
           onPress={()=> setModalWindow(false)} />
+          <View>
+            <Text style={styles.title}>Add News</Text>
+          </View>
+          <Form addArticle={addArticle}/>
         </Modal>
         <View style={gStyle.main}>
           <MaterialIcons name="add-box" color="black" style={styles.add} size={44} 
@@ -40,6 +52,14 @@ export default function Main({navigation}) {
 const styles = StyleSheet.create({
     add:{
       textAlign: 'center',
+      marginTop: 70,
+    },
+    title:{
+      fontSize: 40,
+      fontFamily: 'mt-bold',
+      textAlign: 'center',
+      paddingTop: 20,
+      paddingBottom: 20,
     },
       text: {
         fontSize: 26,
